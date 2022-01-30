@@ -19,7 +19,7 @@ public class Ejercicio04 {
 
         Scanner entrada = new Scanner(System.in);
         entrada.useLocale(Locale.US);
-        
+
         double sueldo;
         String nombre;
         double[] arregloSueldos;
@@ -43,13 +43,7 @@ public class Ejercicio04 {
                     System.out.printf("agregue sueldo %d para usuario %d\n",
                             j, i);
                     sueldo = entrada.nextDouble();
-                    
-                    /* Agregar una excepción de tipo InputMismatchException, 
-                       lanzar una Excepción cuando la nota ingresa por el usuario
-                       sea mayor a 10 o menor a 0.
-                       Profe, un sueldo tiene que ser mayor a 10, por eso le puse
-                       que la restriccion sea menor a 1000
-                    */ 
+
                     if (sueldo < 0 || sueldo > 1000) {
                         throw new Exception("Sueldo fuera de rango");
                     }
