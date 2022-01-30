@@ -5,11 +5,12 @@
  */
 package ejercicios;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  *
- * @author reroes
+ * @author TaisBalcazar
  */
 public class Ejercicio02 {
 
@@ -20,15 +21,25 @@ public class Ejercicio02 {
         double suma = 0;
         int numeroCalificaciones = 4;
         int i = 1;
-        while(i<=4){
-            System.out.println("Ingrese calificación: \n");
-            calificacion = entrada.nextDouble();
-            suma = suma + calificacion;
-            i = i + 1;
+         try {
+            while (i <= 4) {
+                System.out.println("Ingrese calificación: \n");
+                calificacion = entrada.nextDouble();
+                if (calificacion > 10 || calificacion < 0) {
+                    throw new Exception("Nota fuera de rango permitido");
+                }
+                suma = suma + calificacion;
+                i = i + 1;
+            }
+
+            promedio = suma / numeroCalificaciones;
+
+            System.out.printf("%.2f\n", promedio);
+        } catch (InputMismatchException e) {
+            System.out.printf("Existe un error de tipo %s\n", e);
+            
+        } catch (Exception e) {
+            System.out.printf("Existe un error %s\n", e);
         }
-
-        promedio = suma / numeroCalificaciones;
-
-        System.out.printf("%.2f\n", promedio);
     }
 }
